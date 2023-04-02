@@ -2,11 +2,26 @@
 import Layout from "../layouts/Layout.astro";
 // import Card from "../components/Card.astro";
 import ColorPicker from "../components/ColorPicker.astro";
+import ResearchPaper from "../content/ResearchPaper.astro";
 ---
 
 <Layout title="WR153">
-  <div class="grid grid-cols-1 place-items-center gap-4">
-    <h1 class="mt-4 font-bold">Dominant Colors</h1>
+  <div class="grid grid-cols-1 gap-4 place-items-center m-4">
+    <div class="mx-auto w-5/6 sm:w-2/3">
+      <ResearchPaper />
+    </div>
+
+    <img
+      src="/logo-open-ai.png"
+      class="w-full sm:w-2/3 aspect-video"
+      alt="AI generated cat"
+    />
+
     <ColorPicker />
+    <img
+      src="/ai_cat.png"
+      class="w-full sm:w-2/3 aspect-video"
+      alt="AI generated cat"
+    />
   </div>
 </Layout>
