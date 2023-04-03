@@ -63,4 +63,4 @@ for idx, chapter in tqdm(enumerate(chapters), total=len(chapters)):
     save_dir = DATA_PATH.joinpath("images", f"chapter_{str(idx + 1)}")
     save_dir.mkdir(exist_ok=True)
     for page_num, page in chapter.items():
-        page.save(save_dir / f"page_{page_num}.jpg", "JPEG")
+        page.save(save_dir / f"{page_num}.jpg", "JPEG")
