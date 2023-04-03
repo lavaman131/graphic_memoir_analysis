@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 // import Card from "../components/Card.astro";
 import ColorPicker from "../components/ColorPicker.astro";
 import ResearchPaper from "../content/ResearchPaper.astro";
+import FreqTable from "../components/FreqTable.astro";
 ---
 
 <Layout title="WR153">
@@ -16,5 +17,9 @@ import ResearchPaper from "../content/ResearchPaper.astro";
       alt="Panel Detection"
     />
     <ColorPicker />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-4">
+      <FreqTable />
+      <img src="/word_cloud.png" />
+    </div>
   </div>
 </Layout>
