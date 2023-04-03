@@ -1,27 +1,37 @@
+import json
 from transformers import AutoModelForSequenceClassification
 from transformers import AutoTokenizer
 import numpy as np
 from scipy.special import softmax
 import csv
 import urllib.request
+from pathlib import Path
+from nltk.corpus import stopwords
+from tqdm import tqdm
+import torch
+import pandas as pd
 
-# Preprocess text (username and link placeholders)
-def preprocess(text):
-    new_text = []
-    for t in text.split(" "):
-        t = '@user' if t.startswith('@') and len(t) > 1 else t
-        t = 'http' if t.startswith('http') else t
-        new_text.append(t)
-    return " ".join(new_text)
-
-# Tasks:
-# emoji, emotion, hate, irony, offensive, sentiment
-# stance/abortion, stance/atheism, stance/climate, stance/feminist, stance/hillary
-
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
 task='sentiment'
 MODEL = f"cardiffnlp/twitter-roberta-base-{task}"
-
+DATA_PATH = Path("/data/wr153")
 tokenizer = AutoTokenizer.from_pretrained(MODEL)
+
+dataset = []
+for f in DATA_PATH.joinpath("text").iterdir():
+    if f.suffix == ".json":
+        with open(f, "rb") as fp:
+            d = json.load(fp)
+            ch_title = d.pop(sorted(d, key=int)[0])
+            # remove outliers for words
+            remove_keys = []
+            for key, val in d.items():
+                if len(val.split()) <= 5:
+                    remove_keys.append(key)
+            for key in remove_keys:
+                d.pop(key)
+            for text in d.values():
+                dataset.append(text)
 
 # download label mapping
 labels=[]
@@ -33,20 +43,23 @@ labels = [row[1] for row in csvreader if len(row) > 1]
 
 # PT
 model = AutoModelForSequenceClassification.from_pretrained(MODEL)
-model.save_pretrained(MODEL)
-tokenizer.save_pretrained(MODEL)
+# model.save_pretrained(MODEL)
+# tokenizer.save_pretrained(MODEL)
+model = model.to(device)
 
-text = "I REALLY DIDN'T KNOW WHAT TO THINK ABOUT THE VEIL. DEEP DOWN I WAS VERY RELIGIOUS BUT AS A FAMILY WE WERE VERY MODERN AND AVANT-GARDE. AT THE AGE OF SIX I WAS ALREADY SURE I WAS THE LAST PROPHET. THIS WAS A FEW YEARS BEFORE THE REVOLUTION. O' ! I WANTED TO BE A PROPHET... BECAUSE OUR MAID DID NOT EAT WITH US. I WAS BORN WITH RELIGION. BECAUSE MY FATHER HAD A CADILLAC. BEFORE ME THERE HAD BEEN A FEW OTHERS I AM THE LAST PROPHET. A WOMAN? AND, ABOVE ALL, BECAUSE MY GRANDMOTHER'S KNEES ALWAYS ACHED. COME HERE MARJI! HELP ME TO STAND UP DON'T WORRY, SOON YOU WON'T HAVE ANY MORE PAN, YOU'LL SEE."
-text = preprocess(text)
-encoded_input = tokenizer(text, return_tensors='pt')
-output = model(**encoded_input)
-scores = output[0][0].detach().numpy()
-scores = softmax(scores)
+counter = {}
+for text in tqdm(dataset):
+    encoded_input = tokenizer(text, return_tensors='pt', max_length=511, truncation="longest_first").to(device)
+    output = model(**encoded_input)
+    scores = output[0][0].detach().cpu().numpy()
+    scores = softmax(scores)
 
-ranking = np.argsort(scores)
-ranking = ranking[::-1]
-print(ranking)
-for i in range(scores.shape[0]):
-    l = labels[ranking[i]]
-    s = scores[ranking[i]]
-    print(f"{i+1}) {l} {np.round(float(s), 4)}")
+    ranking = np.argsort(scores)
+    ranking = ranking[::-1]
+    l = labels[ranking[0]]
+    counter[l] = counter.get(l, 0) + 1
+    
+print(counter)
+
+df = pd.DataFrame(counter, index=[0])
+df.to_csv("sentiment_count.csv", index=False)
