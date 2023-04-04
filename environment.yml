@@ -1,5 +1,8 @@
 name: wr153
 channels:
+  - pytorch
+  - nvidia
+  - fastchan
   - conda-forge
   - defaults
 dependencies:
@@ -17,22 +20,39 @@ dependencies:
   - brotli-bin=1.0.9
   - brotlipy=0.7.0
   - bzip2=1.0.8
-  - ca-certificates=2022.12.7
+  - ca-certificates=2023.01.10
   - cairo=1.16.0
+  - catalogue=2.0.8
   - certifi=2022.12.7
   - cffi=1.15.1
   - charset-normalizer=2.0.4
   - click=8.0.4
+  - colorama=0.4.6
   - comm=0.1.2
+  - confection=0.0.4
   - contourpy=1.0.5
   - cryptography=39.0.1
+  - cuda-cudart=11.8.89
+  - cuda-cupti=11.8.87
+  - cuda-libraries=11.8.0
+  - cuda-nvrtc=11.8.89
+  - cuda-nvtx=11.8.86
+  - cuda-runtime=11.8.0
   - cycler=0.11.0
+  - cymem=2.0.7
+  - cython-blis=0.7.9
+  - dataclasses=0.8
   - dbus=1.13.18
   - debugpy=1.5.1
   - decorator=5.1.1
   - entrypoints=0.4
   - executing=0.8.3
   - expat=2.5.0
+  - fastai=2.7.12
+  - fastcore=1.5.29
+  - fastdownload=0.0.7
+  - fastprogress=1.0.3
+  - ffmpeg=4.3
   - fftw=3.3.10
   - flit-core=3.8.0
   - font-ttf-dejavu-sans-mono=2.37
@@ -48,6 +68,9 @@ dependencies:
   - giflib=5.2.1
   - glib=2.74.1
   - glib-tools=2.74.1
+  - gmp=6.2.1
+  - gmpy2=2.1.2
+  - gnutls=3.6.15
   - graphite2=1.3.13
   - gst-plugins-base=1.22.0
   - gstreamer=1.22.0
@@ -62,6 +85,8 @@ dependencies:
   - ipywidgets=8.0.4
   - jack=1.9.22
   - jedi=0.18.1
+  - jinja2=3.1.2
+  - joblib=1.2.0
   - jpeg=9e
   - jupyter_client=7.4.9
   - jupyter_core=5.3.0
@@ -70,16 +95,25 @@ dependencies:
   - kiwisolver=1.4.4
   - krb5=1.20.1
   - lame=3.100
+  - langcodes=3.3.0
   - lcms2=2.12
   - ld_impl_linux-64=2.38
   - lerc=3.0
+  - libblas=3.9.0
   - libbrotlicommon=1.0.9
   - libbrotlidec=1.0.9
   - libbrotlienc=1.0.9
   - libcap=2.67
+  - libcblas=3.9.0
   - libclang=15.0.7
   - libclang13=15.0.7
+  - libcublas=11.11.3.6
+  - libcufft=10.9.0.58
+  - libcufile=1.6.0.25
   - libcups=2.3.3
+  - libcurand=10.3.2.56
+  - libcusolver=11.4.1.48
+  - libcusparse=11.7.5.86
   - libdb=6.2.32
   - libdeflate=1.17
   - libedit=3.1.20221030
@@ -94,9 +128,12 @@ dependencies:
   - libgomp=12.2.0
   - libgpg-error=1.46
   - libiconv=1.17
+  - libidn2=2.3.2
   - libllvm10=10.0.1
   - libllvm15=15.0.7
+  - libnpp=11.8.0.86
   - libnsl=2.0.0
+  - libnvjpeg=11.9.0.86
   - libogg=1.3.4
   - libopus=1.3.1
   - libpng=1.6.39
@@ -106,9 +143,11 @@ dependencies:
   - libsqlite=3.40.0
   - libstdcxx-ng=12.2.0
   - libsystemd0=253
+  - libtasn1=4.16.0
   - libtiff=4.5.0
   - libtool=2.4.7
   - libudev1=253
+  - libunistring=0.9.10
   - libuuid=2.38.1
   - libvorbis=1.3.7
   - libwebp=1.2.4
@@ -119,6 +158,7 @@ dependencies:
   - libxslt=1.1.37
   - libzlib=1.2.13
   - lz4-c=1.9.4
+  - markupsafe=2.1.1
   - matplotlib=3.7.1
   - matplotlib-base=3.7.1
   - matplotlib-inline=0.1.6
@@ -126,23 +166,31 @@ dependencies:
   - mkl-service=2.4.0
   - mkl_fft=1.3.1
   - mkl_random=1.2.2
+  - mpc=1.1.0
+  - mpfr=4.0.2
   - mpg123=1.31.3
+  - mpmath=1.2.1
   - munkres=1.1.4
+  - murmurhash=1.0.9
   - mypy_extensions=0.4.3
   - mysql-common=8.0.32
   - mysql-libs=8.0.32
   - ncurses=6.4
   - nest-asyncio=1.5.6
+  - nettle=3.7.3
+  - networkx=2.8.4
   - nspr=4.35
   - nss=3.89
   - numexpr=2.8.4
   - numpy=1.23.5
   - numpy-base=1.23.5
+  - openh264=2.1.1
   - openssl=3.1.0
   - packaging=23.0
   - pandas=1.5.3
   - parso=0.8.3
   - pathspec=0.10.3
+  - pathy=0.10.1
   - pcre=8.45
   - pcre2=10.40
   - pexpect=4.8.0
@@ -152,6 +200,7 @@ dependencies:
   - platformdirs=2.5.2
   - ply=3.11
   - pooch=1.4.0
+  - preshed=3.0.8
   - prompt-toolkit=3.0.36
   - psutil=5.9.0
   - pthread-stubs=0.4
@@ -161,6 +210,7 @@ dependencies:
   - pulseaudio-daemon=16.1
   - pure_eval=0.2.2
   - pycparser=2.21
+  - pydantic=1.10.7
   - pygments=2.11.2
   - pyopenssl=23.0.0
   - pyparsing=3.0.9
@@ -171,28 +221,48 @@ dependencies:
   - python=3.8.16
   - python-dateutil=2.8.2
   - python_abi=3.8
+  - pytorch=2.0.0
+  - pytorch-cuda=11.8
+  - pytorch-mutex=1.0
   - pytz=2022.7
+  - pyyaml=6.0
   - pyzmq=23.2.0
   - qt-main=5.15.8
   - qt-webengine=5.15.8
   - qtwebkit=5.212
   - readline=8.2
   - requests=2.28.1
+  - scikit-learn=1.2.2
   - scipy=1.10.0
   - seaborn=0.12.2
   - setuptools=65.6.3
+  - shellingham=1.5.1
   - sip=6.7.7
   - six=1.16.0
+  - smart_open=5.2.1
+  - spacy=3.5.1
+  - spacy-legacy=3.0.12
+  - spacy-loggers=1.0.4
   - sqlite=3.41.1
+  - srsly=2.4.6
   - stack_data=0.2.0
+  - sympy=1.11.1
+  - thinc=8.1.9
+  - threadpoolctl=3.1.0
   - tk=8.6.12
   - toml=0.10.2
   - tomli=2.0.1
+  - torchaudio=2.0.0
+  - torchtriton=2.0.0
+  - torchvision=0.15.0
   - tornado=6.2
   - tqdm=4.65.0
   - traitlets=5.7.1
+  - typer=0.4.2
+  - typing-extensions=4.4.0
   - typing_extensions=4.4.0
   - urllib3=1.26.14
+  - wasabi=1.1.1
   - wcwidth=0.2.5
   - wheel=0.38.4
   - widgetsnbextension=4.0.5
@@ -215,32 +285,71 @@ dependencies:
   - xorg-xextproto=7.3.0
   - xorg-xproto=7.0.31
   - xz=5.2.10
+  - yaml=0.2.5
   - zeromq=4.3.4
   - zipp=3.11.0
   - zlib=1.2.13
   - zstd=1.5.4
   - pip:
+      - aiofiles==23.1.0
       - aiohttp==3.8.4
       - aiosignal==1.3.1
+      - altair==4.2.2
+      - anyio==3.6.2
       - async-timeout==4.0.2
       - attrs==22.2.0
       - backoff==2.2.1
       - cachetools==5.3.0
       - cohere==4.1.3
+      - fastapi==0.95.0
+      - ffmpy==0.3.0
+      - filelock==3.10.7
       - frozenlist==1.3.3
+      - fsspec==2023.3.0
       - google-api-core==2.11.0
       - google-auth==2.17.0
       - google-cloud-vision==3.4.1
       - googleapis-common-protos==1.59.0
+      - gradio==3.24.1
+      - gradio-client==0.0.5
       - grpcio==1.53.0
       - grpcio-status==1.53.0
+      - h11==0.14.0
+      - httpcore==0.16.3
+      - httpx==0.23.3
+      - huggingface-hub==0.13.3
+      - jsonschema==4.17.3
+      - linkify-it-py==2.0.0
+      - markdown-it-py==2.2.0
+      - mdit-py-plugins==0.3.3
+      - mdurl==0.1.2
       - multidict==6.0.4
+      - nltk==3.8.1
+      - openai==0.27.2
       - opencv-python==4.7.0.72
+      - orjson==3.8.9
       - pdf2image==1.16.3
       - pillow==9.4.0
+      - pkgutil-resolve-name==1.3.10
       - proto-plus==1.22.2
       - protobuf==4.22.1
       - pyasn1==0.4.8
       - pyasn1-modules==0.2.8
+      - pydub==0.25.1
+      - pyrsistent==0.19.3
+      - python-dotenv==1.0.0
+      - python-multipart==0.0.6
+      - regex==2023.3.23
+      - rfc3986==1.5.0
       - rsa==4.9
+      - semantic-version==2.10.0
+      - sentencepiece==0.1.97
+      - sniffio==1.3.0
+      - starlette==0.26.1
+      - tokenizers==0.13.2
+      - toolz==0.12.0
+      - transformers==4.27.4
+      - uc-micro-py==1.0.1
+      - uvicorn==0.21.1
+      - websockets==11.0
       - yarl==1.8.2
