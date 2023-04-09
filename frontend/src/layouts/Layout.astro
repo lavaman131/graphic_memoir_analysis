@@ -4,6 +4,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+import "../styles/global.css";
 ---
 
 <!DOCTYPE html>
@@ -11,24 +12,11 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body class="bg-white min-h-screen min-w-screen">
     <slot />
   </body>
-
-  <style is:global>
-    .color {
-      float: left;
-      display: inline-block;
-      height: 100%;
-    }
-    .mla-reference {
-      padding-left: 2rem;
-      text-indent: -2rem;
-      line-height: 2rem;
-    }
-  </style>
 </html>

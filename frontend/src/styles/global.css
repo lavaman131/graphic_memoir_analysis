@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.color {
+  float: left;
+  display: inline-block;
+  height: 100%;
+}
+.mla-reference {
+  padding-left: 2rem;
+  text-indent: -2rem;
+  line-height: 2rem;
+}
