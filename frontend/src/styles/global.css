@@ -12,3 +12,7 @@
   text-indent: -2rem;
   line-height: 2rem;
 }
+.link {
+ @apply underline;
+ @apply text-blue-600
+}

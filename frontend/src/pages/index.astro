@@ -9,13 +9,22 @@ import FreqTable from "../components/FreqTable.astro";
   <div class="grid grid-cols-1 gap-4 place-items-center m-4">
     <div class="mx-auto w-5/6 sm:w-2/3">
       <div class="flex flex-col gap-4">
+        <div class="flex flex-row items-center gap-4">
+          <img
+            src="profile.jpg"
+            class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full"
+          />
+          <div class="flex flex-col">
+            <span>Alex Lavaee</span>
+            <span>Apr 9, 2023</span>
+          </div>
+        </div>
+
         <h1 class="font-bold text-3xl sm:text-4xl lg:text-5xl">
           Statistical Analysis and Exploration of Generative AI in Graphic
           Memoirs
         </h1>
         <p class="indent-8 leading-8">
-          Artificial intelligence (AI) is an exciting and rapidly evolving
-          field, but its impact on literature has yet to be fully explored.
           According to Anantrasirichai and Bull's "Artificial Intelligence in
           the Creative Industries: a Review," artificial intelligence is
           described as an algorithmic process which allows "a computer system to
@@ -25,57 +34,56 @@ import FreqTable from "../components/FreqTable.astro";
           methods to 'learn' information directly from large amounts of example
           data without relying on a predetermined equation or model" (591).
           Among the most recent developments in artificial intelligence is
-          generative AI which utilizes algorithms to very accurately create or
-          generate text and image content. In the first part of my research I
-          will analyze the means in which Marjane Satrapi promotes political and
-          social activism in her graphic memoir, <i>The Complete Persepolis</i>,
-          by closely examining the text and image content (features) of her
-          memoir utilizing machine learning techniques and generating aggregate
-          statistics. I will then follow my analysis with a case study on the
-          effectiveness, advantages, and disadvantages of generative AI being
-          used to create text and images to disseminate ideologies in the same
-          way graphic memoirs like Satrapi's achieve. While there are previous
-          papers describing the influence of Satrapi's work as a medium to
-          promote political and social activism against Iran's strict Islamic
-          regime (Stromberg 91-119), none follow a statistical and machine
-          learning approach to automatically identify unique features in
-          Satrapi's memoir for analysis. My work provides a baseline as well as
-          an open-source tool for statistical methods in comparing different
-          graphic memoirs.
+          generative AI which utilizes algorithms to very accurately (measured
+          as the algorithm's ability to effectively predict the next word/token
+          given a previous sequence of words/tokens) create or generate text and
+          image content. Artificial intelligence (AI) and statistical analysis
+          is an exciting and rapidly evolving field, but its impact on
+          literature has yet to be fully explored. In the first part of my
+          research I will attempt to create a statistical tool to analyze
+          graphic memoirs with Marjane Satrapi's graphic memoir, <i
+            >The Complete Persepolis</i
+          >, as a case study by closely examining the text and image content
+          (features) of her memoir utilizing machine learning techniques. I will
+          then follow my analysis with an experiment using generative AI to
+          recreate text in the style of Satrapi in order to explore the
+          capabilities of AI. While there are previous papers describing the
+          influence of Satrapi's work as a medium to promote political and
+          social activism against Iran's strict Islamic regime (Stromberg
+          91-119), none follow a statistical and machine learning approach to
+          automatically identify unique features in Satrapi's memoir for
+          analysis and directly assess the effects of generative AI for this
+          matter. My work also provides a baseline as well as an open-source
+          tool for statistical methods in comparing different graphic memoirs.
         </p>
         <h1 class="font-bold text-2xl sm:text-3xl lg:text-4xl">Methods</h1>
         <p class="indent-8 leading-8">
           There are numerous features of a graphic memoir that allow it to
           convey different messages. For instance, the average number of words
-          per page can reveal much about an author's style—short versus long
-          sentences can have different effects on readers. Additionally, the
-          number of panels in a page allows certain authors to underscore a
-          particular scene in their memoir. Using object recognition or shape
-          detection algorithms, it may be possible to count the number of panels
-          per page in a given graphic memoir. Also, there are currently
-          sentiment analysis algorithms in place that allow computers to
-          recognize the connotation of certain words and phrases with the
-          capabilities of large language models (LLMs) which are algorithms that
-          have the ability to effectively interpret and generate natural
-          language. Looking at the ratio of positive, negative, and neutral
-          sentiment words may reveal important information in that regard.
-          Another important metric would be to consider the average ratio of
-          words to images in each page of the memoir. A study by psychologists
-          Piotr Winkielman and Yekaterina Gogolushko on the "Influence of
-          Suboptimally and Optimally Presented Affective Pictures and Words on
-          Consumption-Related Behavior" reveals that a single image elicits a
-          stronger emotional response than a single word. Additionally, whether
-          a memoir is illustrated in black and white may reveal much about the
-          work versus colored content. The author's background including race,
-          age, nationality, gender, and any other personal information is also
-          crucial to understanding the motivations behind their memoir.
-          Furthermore, the publication date of a graphic memoir is important
-          because society also plays a major influence on the content that is
-          released, especially if there is greater emphasis on a particular
-          current event or the author's past. Through statistical analysis of
-          these features I can gain a greater context of the features that allow
+          per page which can be extracted using optical character recognition
+          algorithms presented in Vetulani, Zygmunt, et al. can reveal much
+          about an author's style—short versus long sentences can have different
+          effects on readers. Additionally, the number of panels in a page
+          allows certain authors to underscore a particular scene in their
+          memoir. Using object recognition or shape detection algorithms, it may
+          be possible to count the number of panels per page in a given graphic
+          memoir. Also, there are currently sentiment analysis algorithms in
+          place that allow computers to recognize the connotation of certain
+          words and phrases with the capabilities of large language models
+          (LLMs) which are algorithms that have the ability to effectively
+          interpret and generate natural language. Looking at the ratio of
+          positive, negative, and neutral sentiment words may reveal important
+          information in that regard. Another important metric would be to
+          consider the average ratio of words to images in each page of the
+          memoir. Additionally, whether a memoir is illustrated in black and
+          white may reveal much about the work versus colored content. The
+          author's background including race, age, nationality, gender, and any
+          other personal information all could be indirectly related to the
+          aformentioned statistics. Through statistical analysis of these
+          features I can gain a greater context of the features that allow
           Satrapi's work to be such an effective medium for political and social
-          protest.
+          protest as well as create a new form of computational literary
+          analysis that can be embedded with traditional analysis of text.
         </p>
       </div>
     </div>
@@ -91,9 +99,13 @@ import FreqTable from "../components/FreqTable.astro";
           thresholding it is possible to get an accurate count of the average
           number of panels per page in a given chapter of Satrapi's work.
           Through observing the number of panels per page, the reader can
-          understand the author's predominant style of closure: scene-to-scene
-          which involves a series of events that happen in one location, and
-          continuous period of time revolving around Satrapi's life. In this
+          understand and compare the presence or lack-thereof of images in
+          different memoirs. In the case of Satrapi's memoir, the strong
+          presence of images aligns well with a study by psychologists Piotr
+          Winkielman and Yekaterina Gogolushko on the "Influence of Suboptimally
+          and Optimally Presented Affective Pictures and Words on
+          Consumption-Related Behavior" which reveals that a single image
+          elicits a stronger emotional response than a single word. In this
           particular sample page below we can observe the results of the object
           detection algorithm. In this specific case, the algorithm detects 6
           panels denoted by the green outlines in the right-most image:
@@ -135,7 +147,8 @@ import FreqTable from "../components/FreqTable.astro";
           number of words per page can be used to contrast the writing styles of
           different authors in graphic memoirs and weigh the advantages and disadvantages
           of denser texts. A highly debated topic in literature is finding this optimal
-          word-count balance.
+          word-count balance. By repeating this analysis for multiple memoirs it
+          may be possible to find a general trend in word-count.
         </p>
       </div>
     </div>
@@ -161,16 +174,16 @@ import FreqTable from "../components/FreqTable.astro";
           quest for knowledge of the world around her through her childhood in
           Iran, teenage years in Austria, and early adulthood in Iran. Arguably,
           this statistic reveals Satrapi's focus on knowledge acquired through
-          scholarship but rather interpersonal transmission of knowledge with
-          family, friends, and acquaintances. These relationships lead Satrapi
-          to develop a knack for social and political activism in order to
-          inform individuals with stereotypical and disillusioned perspectives
-          of her Iranian nationality. This raises the ultimate question if the
-          knowledge we gain from other people is as reliable as the research we
-          conduct. The broader implications of Satrapi's concept of social
-          disillusionment through her encounters with the global community while
-          in school at Austria can be related to the effects of social media
-          today and false narratives surrounding demographics of people.
+          interpersonal relationships with family, friends, and acquaintances.
+          These relationships lead Satrapi to develop a knack for social and
+          political activism in order to inform individuals with stereotypical
+          and disillusioned perspectives of her Iranian nationality. This raises
+          the ultimate question if the knowledge we gain from other people is as
+          reliable as the research we conduct. The broader implications of
+          Satrapi's concept of social disillusionment through her encounters
+          with the global community while in school at Austria can be related to
+          the effects of social media today and false narratives surrounding
+          demographics of people.
         </p>
       </div>
     </div>
@@ -184,22 +197,23 @@ import FreqTable from "../components/FreqTable.astro";
           A highly discussed topic introduced by Scott McCloud in the chapter
           "Show and Tell" of his work, <i
             >Understanding Comics: The Invisible Art</i
-          > is finding the "perfect" balance between words and images. According
-          to McCloud the norm in literature is that great works of art and literature
-          are only possible when the words and images are kept separate. In Scott's
-          perspective, people are often taught with picture books as children because
-          they are "easier" and less nuanced than the more "real" novels read as
-          adults. However, the art of comics is finding the right balance of words
-          and images. Specifically, Satrapi's memoir utilizes a word and picture
-          combination known as interdependent which involves that words and pictures
-          go hand in hand to convey an idea that neither could convey alone. The
-          graph below shows the word to image ratios in every chapter of Marjane
-          Satrapi's graphic memoir, <i>The Complete Persepolis</i>. For
-          reference, the higher the word to image ratio, the greater the number
-          of words relative to images there are. By using statistical analysis
-          and machine learning techniques, it is possible to compare the
-          interaction between words and images to study the ratio of each and
-          their relative effectiveness as graphic memoirs.
+          >, is finding the "perfect" balance between words and images.
+          According to McCloud the norm in literature is that great works of art
+          and literature are only possible when the words and images are kept
+          separate. In Scott's perspective, people are often taught with picture
+          books as children because they are "easier" and less nuanced than the
+          more "real" novels read as adults. However, the art of comics is
+          finding the right balance of words and images. Specifically, Satrapi's
+          memoir utilizes a word and picture combination known as interdependent
+          which involves words and pictures going hand in hand to convey an idea
+          that neither could convey alone. The graph below shows the word to
+          image ratios in every chapter of Marjane Satrapi's graphic memoir, <i
+            >The Complete Persepolis</i
+          >. For reference, the higher the word to image ratio, the greater the
+          number of words relative to images there are. By repeating this
+          analysis, it is possible to compare the interaction between words and
+          images to study the ratio of each and their relative effectiveness in
+          graphic memoirs.
         </p>
       </div>
     </div>
@@ -211,28 +225,27 @@ import FreqTable from "../components/FreqTable.astro";
           Colors Present in Memoir
         </h1>
         <p class="indent-8 leading-8">
-          Another, undervalued property of graphic memoirs is their color
+          Another undervalued property of graphic memoirs is their color
           palette. Scott McCloud describes the effect of color in the chapter "A
           Word About Color" of his work, <i
             >Understanding Comics: The Invisible Art</i
           >. According to McCloud, while color gives the author more ability to
-          explore with the expression of their images and allows authors to
-          "objectify their subjects" (189), "unfortunately, color is still an
-          expensive option and has historically been in the hands of larger,
-          more conservative publishers" (191). This leads to most comic artists
-          to be forced to experiment with shades of black and white. As
-          explained by McCloud, "the differences between balck-and-white and
-          color comics are vast and profound affecting every level of the
-          reading experience." (192) McCloud states that in "black and white,
-          the ideas behind the art are communicated more directly [where]
-          meaning transcends form [and] art approaches language." (192)
-          Furthermore, McCloud states that flat colors "take on more
-          significance...and through more expressive colors comics can become an
-          intoxicating environment of sensations that only color can give."
-          (192) Thus, color plays an important role in the meaning of graphic
-          memoirs, however, cost can be prohibitive. This could be a potential
-          reason Satrapi uses a black and white color palette as well as to
-          communicate a more direct meaning of her work:
+          explore with the expression of their images and "objectify their
+          subjects" (189), "unfortunately, color is still an expensive option
+          and has historically been in the hands of larger, more conservative
+          publishers" (191). This leads to most comic artists to be forced to
+          experiment with shades of black and white. As explained by McCloud,
+          "the differences between black-and-white and color comics are vast and
+          profound affecting every level of the reading experience." (192)
+          McCloud states that in "black and white, the ideas behind the art are
+          communicated more directly [where] meaning transcends form [and] art
+          approaches language." (192) Furthermore, McCloud states that flat
+          colors "take on more significance...and through more expressive colors
+          comics can become an intoxicating environment of sensations that only
+          color can give." (192) Thus, color plays an important role in the
+          meaning of graphic memoirs, however, cost can be prohibitive. This
+          could be a potential reason Satrapi uses a black and white color
+          palette as well as to communicate a more direct meaning of her work:
         </p>
       </div>
     </div>
@@ -257,7 +270,7 @@ import FreqTable from "../components/FreqTable.astro";
           ones, and other trauma. However, this method is still lacking in
           understanding the nuance of combinations of multiple sentiments being
           expressed in a page. While it is possible to take the ratio of
-          positive, neutral, and negative to aggregate a statistic of each it
+          positive, neutral, and negative to aggregate a statistic of each, it
           leads to difficulty in effectively communicating my analysis. Hence,
           sentiment as a comparison metric of different memoirs has the
           potential to be further explored in future works. A graph of the
@@ -287,8 +300,8 @@ import FreqTable from "../components/FreqTable.astro";
           In fact, the simplest case of the algorithm involves probabilistically
           generating text based on the context of previous words (tokens) in the
           text. In most cases, similar types of algorithms are found to
-          regurgitate information trained on rather than generating unique
-          information.
+          regurgitate information that they are trained on rather than
+          generating unique information.
         </p>
       </div>
     </div>
@@ -304,12 +317,12 @@ import FreqTable from "../components/FreqTable.astro";
           a framework for future statistical tools that can be used to compare
           and contrast pieces of literature, especially graphic memoirs. My code
           is open-source and available for future use and modification in my <a
-            class="underline text-blue-600"
+            class="link"
             href="https://github.com/lavaman131/graphic_memoir_analysis"
             >GitHub repo</a
           >.
         </p>
-        <h1 class="sm:text-lg lg:text-xl">(1870 Words)</h1>
+        <h1 class="sm:text-lg lg:text-xl">(1893 Words)</h1>
       </div>
     </div>
     <div class="mx-auto w-5/6 sm:w-2/3">
@@ -318,8 +331,13 @@ import FreqTable from "../components/FreqTable.astro";
         <div>
           <p class="mla-reference">
             Anantrasirichai, Nantheera, and David Bull. "Artificial Intelligence
-            in the Creative Industries: a Review." The Artificial Intelligence
-            Review, vol. 55, no. 1, 2022, pp. 589-656.
+            in the Creative Industries: a Review." <i
+              >The Artificial Intelligence Review</i
+            >, vol. 55, no. 1, 2022, pp. 589-656. <a
+              class="link"
+              href="https://doi.org/10.1007/s10462-021-10039-7"
+              >https://doi.org/10.1007/s10462-021-10039-7</a
+            >
           </p>
           <p class="ml-8 leading-8">
             The following research paper provides a background on the current
@@ -329,7 +347,7 @@ import FreqTable from "../components/FreqTable.astro";
             production workflows, (iv) information extraction and enhancement,
             and (v) data compression. It is also important to note that the work
             also emphasizes the use of AI as a creative aid rather than a
-            replacement for human creativity. The genre of this source falls
+            replacement for human creativity. The genre of this journal falls
             under the background source category of BEAT. I plan to use this
             source to highlight the current capabilities of AI and connect it to
             the subject matter of my research paper, computational creativity
@@ -362,22 +380,25 @@ import FreqTable from "../components/FreqTable.astro";
             2007.
           </p>
           <p class="ml-8 leading-8">
-            Persepolis is the story of Satrapi's unforgettable childhood and
-            coming of age within a large and loving family in Tehran during the
-            Islamic Revolution of 1979. The memoir describes her journey between
-            Europe and Iran along with the violations of freedom and Satrapi's
-            desire to pursue social activism. This memoir falls into one of
-            three exhibit sources in BEAT that I will be using for the
-            statistical analysis in my research. The work particularly appeals
-            to me because it motivates me to explore the unique backgrounds of
-            each author to compare and contrast their upbringing and how it
-            translates to their writing. (102 words)
+            <i>Persepolis</i> is the story of Satrapi's unforgettable childhood and
+            coming of age within a large and loving family in Tehran during the Islamic
+            Revolution of 1979. The memoir describes her journey between Europe and
+            Iran along with the violations of freedom and Satrapi's desire to pursue
+            social activism. This memoir falls into one of three exhibit sources
+            in BEAT that I will be using for the statistical analysis in my research.
+            The work particularly appeals to me because it motivates me to explore
+            the unique backgrounds of each author to compare and contrast their upbringing
+            and how it translates to their writing. (102 words)
           </p>
         </div>
         <div>
           <p class="mla-reference">
             Stromberg, Fredrik. "Schemata in the Graphic Novel Persepolis."
-            European Comic Art, vol. 13, no. 2, 2020, pp. 91-119.
+            <i>European Comic Art</i>, vol. 13, no. 2, 2020, pp. 91-119. <a
+              class="link"
+              href="https://doi.org/10.3167/eca.2020.130205"
+              >https://doi.org/10.3167/eca.2020.130205</a
+            >
           </p>
           <p class="ml-8 leading-8">
             This research paper describes the influence of Marjane Satrapi's <i
@@ -397,10 +418,42 @@ import FreqTable from "../components/FreqTable.astro";
         </div>
         <div>
           <p class="mla-reference">
+            Vetulani, Zygmunt, et al. "How to Improve Optical Character
+            Recognition of Historical Finnish Newspapers Using Open Source
+            Tesseract OCR Engine - Final Notes on Development and Evaluation."
+            Human Language Technology. Challenges for Computer Science and
+            Linguistics, vol. 12598, Springer International Publishing AG,
+            Switzerland, 2020, pp. 17-30. Lecture Notes in Computer Science. <a
+              class="link"
+              href="https://doi.org/10.1007/978-3-030-66527-2_2"
+              >https://doi.org/10.1007/978-3-030-66527-2_2</a
+            >
+          </p>
+          <p class="ml-8 leading-8">
+            The paper presented in this journal provides an intersting
+            perspective into the state of converting paper content to digital
+            formats using optical character recognition technology (OCR). The
+            particular case study describes the efforts that are being carried
+            out in the National Library of Finland (NLF) using the open-source
+            OCR engine, Tesseract. As more paper formats are scanned and
+            digitized the possibilities for computational analysis of literature
+            dramatically increase. The genre of this journal falls under the
+            background source category of BEAT. This work provides important
+            context since in my work I use a similar approach for converting a
+            PDF of Satrapi's memoir to images and then use Google's OCR library
+            to extract the text. (114 words)
+          </p>
+        </div>
+        <div>
+          <p class="mla-reference">
             Winkielman, Piotr, and Yekaterina Gogolushko. "Influence of
             Suboptimally and Optimally Presented Affective Pictures and Words on
-            Consumption-Related Behavior." Frontiers in Psychology, vol. 8,
-            2018, p. 2261.
+            Consumption-Related Behavior." <i>Frontiers in Psychology</i>, vol.
+            8, 2018, p. 2261. <a
+              class="link"
+              href="https://doi.org/10.3389/fpsyg.2017.02261"
+              >https://doi.org/10.3389/fpsyg.2017.02261</a
+            >
           </p>
           <p class="ml-8 leading-8">
             This study measures the impact of two of the most common emotional
@@ -410,10 +463,10 @@ import FreqTable from "../components/FreqTable.astro";
             of BEAT. The goal of including the scientists' work is to provide
             additional context to the statistical analysis I will be attempting
             on Marjane Satrapi's <i>The Complete Persepolis</i>, specifically,
-            measuring the average ratio of words to images per page. My
-            conclusion will help me understand if it is the images that create
-            the most significant emotional impact in the memoir or if the words
-            provide an additive effect. (114 words)
+            measuring the average ratio of words to images per page. This source
+            will allow me to better convey the significance of using object
+            detection algorithms to count the panels and images in a graphic
+            memoir. (110 words)
           </p>
         </div>
       </div>
